@@ -128,9 +128,9 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   height: 90px;
   position: fixed;
-  left: 0;
+  left: 20px;
   top: 0;
-  right: 0;
+  right: 20px;
   transition: all 0.5s;
   z-index: 997;
 }
