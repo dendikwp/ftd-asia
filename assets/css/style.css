@@ -128,11 +128,13 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   height: 90px;
   position: fixed;
-  left: 20px;
+  left: 0;
   top: 0;
-  right: 20px;
+  right: 0;
   transition: all 0.5s;
   z-index: 997;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #header.header-scrolled, #header.header-inner {
   background: rgba(6, 12, 34, 0.98);
@@ -158,8 +160,8 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 40px;
 }
 @media (max-width: 992px) {
-  #header #logo img {
-    max-height: 30px;
+  #hero h5{
+    font-size: 30px !important;
   }
 }
 
