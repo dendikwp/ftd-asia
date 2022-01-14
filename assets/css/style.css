@@ -163,6 +163,11 @@ h1, h2, h3, h4, h5, h6 {
   #hero h5{
     font-size: 30px !important;
   }
+
+  #about p {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -441,6 +446,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 991px) {
   #hero .hero-container {
     top: 70px;
+    padding: 0 23px;
   }
 }
 #hero h5 {
@@ -533,7 +539,7 @@ h1, h2, h3, h4, h5, h6 {
   animation: none;
   border-radius: 0;
 }
-#hero .about-btn {
+.about-btn {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -549,7 +555,7 @@ h1, h2, h3, h4, h5, h6 {
   animation-delay: 0.8s;
   border: 2px solid #226df8;
 }
-#hero .about-btn:hover {
+.about-btn:hover {
   background: #226df8;
   color: #fff;
 }
