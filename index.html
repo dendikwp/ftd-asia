@@ -14,8 +14,9 @@
   <link href="assets/img/iconasia.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -23,26 +24,50 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<style>
+  .splide__list {
+    cursor: grab;
+  }
 
+  .splide__list.grabbing {
+    cursor: grabbing;
+  }
+</style>
+
+<body>
+  <div id="slider-image" class="overlay">
+    <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+    <div id="image-slider" class="splide container centered">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img src="assets/img/hotels/1.jpg" class="img-slider">
+          </li>
+          <li class="splide__slide">
+            <img src="assets/img/hotels/2.jpg" class="img-slider">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center ">
     <div class="container pl-5 pr-5 d-flex align-items-center">
-
       <div id="logo" class="me-auto">
         <a href="index.html" class="scrollto"><img src="assets/img/logoasia.png" alt="" title=""></a>
       </div>
-
+      <!-- navbar  -->
       <nav id="navbar" class="navbar order-last order-lg-0" style="padding-left: 100px;">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
           <li><a class="nav-link scrollto" href="#">Visi & Misi</a></li>
-          <li><a class="nav-link scrollto" href="#faq">Pojok Berita</a></li>
+          <li><a class="nav-link scrollto" href="#schedule">Berita & Pengumuman</a></li>
           <li><a class="nav-link scrollto" href="#venue">Kalender</a></li>
           <li><a class="nav-link scrollto" href="#">Unduhan</a></li>
           <li><a class="nav-link scrollto" href="#">Perkuliahan</a></li>
@@ -73,21 +98,44 @@
               <li role="separator" class="divider"></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#supporters">Lain-Lain</a></li>
+          <li class="dropdown"><a href="#"><span>Lain-Lain</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="https://ftd.asia.ac.id/profil-dosen">Profil Dosen</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://ftd.asia.ac.id/jam-bimbingan">Jam Bimbingan</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://lp2m.asia.ac.id/">LP2M</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://asia.ac.id/usp/">USP</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://lpmi.asia.ac.id/">LPMI</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://inbis.asia.ac.id/">INBIS</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://kui.asia.ac.id/">KUI</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://careercenter.asia.ac.id/">CAREER CENTER</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://konseling.asia.ac.id/">KONSELING</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="https://arc.asia.ac.id/">ARC</a></li>
+            </ul>
+          </li>
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
+      </nav>
+      <!-- .navbar -->
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-      <h5 class="mb-4 pb-0">FAKULTAS TEKNOLOGI DAN DESAIN </h5>
-      <p class="mb-4 pb-0">Institut Teknologi dan Bisnis ASIA Malang&nbsp;&nbsp;🏫</p>
-      <a href="" class="play-btn mb-4"></a>
+      <h1 class="mb-4 pb-0">Fakultas<br><span>Teknologi</span> dan Desain</h1>
+      <p class="mb-4 pb-0">Institut Teknologi dan Bisnis <span>ASIA</span> Malang</p>
+      <a href="#" class="play-btn mb-4" onclick="openNav()"></a>
     </div>
   </section>
   <!-- End Hero Section -->
@@ -115,9 +163,56 @@
       </div>
     </section><!-- End About Section -->
 
+    <style>
+      .thumb-menu:after {
+        content: "";
+        height: 0;
+        clear: both;
+        display: block;
+      }
+
+      .thumb-menu {
+        display: table;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .img-menu {
+        width: 230px;
+        float: left;
+      }
+
+      .thumb-text {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 50px;
+        width: 100%;
+      }
+
+      .title-menu {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 2px;
+      }
+    </style>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <div class='thumb-menu'>
+              <img class="img-menu" src="assets/img/rektor.png" alt="">
+              <div class="thumb-text">
+                <div class="title-menu">"Peluang sangat besar di era digital ini. START EARLY, START NOW. "</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ======= Prodi Section ======= -->
-    <section id="speakers">
+    <!-- <section id="speakers">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Program Studi</h2>
@@ -128,520 +223,165 @@
               <img src="assets/img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Teknik Informatika</a></h3>
-                <p>Isi Visi & Misi</p>
+                <p>Menciptakan sarjana komputer bergelar (S. Kom) profesional dibidang Teknologi Komputer.</p>
                 <div class="social">
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="200">
-              <img src="assets/img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Sistem Komputer</a></h3>
-                <p>Isi Visi & Misi</p>
-                <div class="social">
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
-              <img src="assets/img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Desain Komunikasi Visual</a></h3>
-                <p>Isi Visi & Misi</p>
-                <div class="social">
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-    </section><!-- End Prodi Section -->
-
-    <!-- =======  Berita Section ======= -->
-    <section id="faq">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Pojok Berita </h2>
-        </div>
-
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-9">
-
-            <ul class="faq-list">
-
-              <li>
-                <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Berita Akademik<i
-                    class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    test
-                  </p>
-                </div>
-              </li>
-
-            </ul>
-
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- End  Berita -->
+    </section> -->
+    <!-- End Prodi Section -->
 
     <!-- ======= Pengumuman Section ======= -->
     <section id="schedule" class="section-with-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Pengumuman</h2>
-          <p></p>
+          <h2>Berita & Pengumuman</h2>
         </div>
-
-
         <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
-          <!-- Schdule Day 1 -->
-          <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>13 Januari 2022</time></div>
-              <div class="col-md-10">
-                <h4>Judul Pengumuman</h4>
-                <p>test</p>
+          <div role="tabpanel" class="tab-pane fade show active" id="day-1">
+            <div class="row">
+              <div class="col-md-8 berita-container">
+                <h4 class="title-berita">
+                  Pojok Berita
+                </h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mt-2">
+                      <img src="assets/img/hotels/3.jpg" alt=""
+                        style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px;">
+                      <div class="mt-3">
+                        <h5><b>Family Gathering Institut Asia Malang melepas 2021, manyambut 2022</b></h5>
+                        <p style="margin-top: -10px;">Admin | 13 Januari 2022</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="schedule-item">
+                      <div class="speaker">
+                        <img src="assets/img/hotels/3.jpg" alt="Brenden Legros">
+                      </div>
+                      <h4><span>Admin FTD |</span>
+                        Family Gathering Institut Asia Malang melepas 2021, manyambut 2022</h4>
+                      <p>13 Januari 2022</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h4 class="title-berita">
+                  Pengumuman
+                </h4>
+                <div class="schedule-item">
+                  <h4>Jadwal Pendaftaran Ujian Praseminar & Tugas Akhir Semester Ganjil T.A 2021-2022</h4>
+                  <p>13 Januari 2022 | admin</p>
+                </div>
+                <div class="schedule-item">
+                  <h4>PERPANJANGAN PENDAFTARAN UJIAN PAMERAN & KOMPRE TUGAS AKHIR PRODI DKV SEMESTER GENAP 2020-2021
+                  </h4>
+                  <p>13 Januari 2022 | admin</p>
+                </div>
               </div>
             </div>
-
           </div>
-          <!-- End Schdule Day 1 -->
-
-          <!-- Schdule Day 2 -->
-          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>10:00 AM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/1.jpg" alt="Brenden Legros">
-                </div>
-                <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-                <p>Facere provident incidunt quos voluptas.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>11:00 AM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
-                </div>
-                <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>12:00 AM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/3.jpg" alt="Cole Emmerich">
-                </div>
-                <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>02:00 PM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/4.jpg" alt="Jack Christiansen">
-                </div>
-                <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>03:00 PM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/5.jpg" alt="Alejandrin Littel">
-                </div>
-                <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>04:00 PM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/6.jpg" alt="Willow Trantow">
-                </div>
-                <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-              </div>
-            </div>
-
-          </div>
-          <!-- End Schdule Day 2 -->
-
-          <!-- Schdule Day 3 -->
-          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>10:00 AM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
-                </div>
-                <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>11:00 AM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/3.jpg" alt="Cole Emmerich">
-                </div>
-                <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>12:00 AM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/1.jpg" alt="Brenden Legros">
-                </div>
-                <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-                <p>Facere provident incidunt quos voluptas.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>02:00 PM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/4.jpg" alt="Jack Christiansen">
-                </div>
-                <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>03:00 PM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/5.jpg" alt="Alejandrin Littel">
-                </div>
-                <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-              </div>
-            </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>04:00 PM</time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <img src="assets/img/speakers/6.jpg" alt="Willow Trantow">
-                </div>
-                <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-              </div>
-            </div>
-
-          </div>
-          <!-- End Schdule Day 2 -->
-
         </div>
-
       </div>
-
-    </section><!-- End Pengumuman Section -->
+    </section>
+    <!-- End Pengumuman Section -->
 
     <!-- ======= Agenda & Maps Section ======= -->
     <section id="venue">
-
       <div class="container-fluid" data-aos="fade-up">
-
         <div class="section-header">
-          <h2>Agenda & Maps </h2>
+          <h2>Kalender Akademik</h2>
           <p></p>
         </div>
+        <div class="col-lg-12">
+          <div class="container">
+            <!-- konten kalender  -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Agenda & Maps Section -->
 
-        <div class="row g-0">
-
-          <div class="col-lg-6 venue-info">
-            <div class="row justify-content-center">
-              <div class="col-11 col-lg-8 position-relative">
-                <h3>Kalender Akademik</h3>
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Kontak</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row contact-info">
+              <div class="col-md-6">
+                <div class="contact-address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h3>Alamat</h3>
+                  <address>Jln. Soekarno Hatta - Rembuksari 1A<br> Malang, Jawa Timur</address>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="contact-phone">
+                  <i class="bi bi-phone"></i>
+                  <h3>Telpon</h3>
+                  <p><a href="">(0341)478877</a></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="contact-email">
+                  <i class="bi bi-envelope"></i>
+                  <h3>Email</h3>
+                  <p><a href="mailto:ftd@asia.ac.id">ftd.asia.ac.id</a></p>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-6 venue-map">
+          <div class="col-md-6">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4699.2591422806045!2d112.62233302710163!3d-7.937799108214037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7882780c5b14db%3A0xa2178e9d5a420380!2sSTMIK+-+STIE+Asia+Malang!5e0!3m2!1sen!2sid!4v1495108737268"
               width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
         </div>
-
       </div>
-
-
-    </section><!-- End Agenda & Maps Section -->
-
-    <!-- ======= Ujian Section ======= -->
-    <section id="hotels" class="section-with-bg">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Ujian</h2>
-          <p></p>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-
-
-
-
-        </div>
-      </div>
-
-    </section><!-- End Ujian Section -->
-
-    <!-- ======= Link Section ======= -->
-    <section id="supporters" class="section-with-bg">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Link</h2>
-        </div>
-
-        <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/1.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/2.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/3.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/4.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/5.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/6.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/7.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/8.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- Link Section -->
-
-
-
-    <!-- ======= Lain Section ======= -->
-    <section id="supporters" class="section-with-bg">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Lain - Lain</h2>
-        </div>
-
-        <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/1.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/2.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/3.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/4.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/5.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/6.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/7.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets/img/supporters/8.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- End Lain Section -->
-
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="section-bg">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Kontak</h2>
-          <p></p>
-        </div>
-
-        <div class="row contact-info">
-
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Alamat</h3>
-              <address>Jalan Soekarno Hatta - Rembuksari 1A, Malang, Jawa Timur</address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="bi bi-phone"></i>
-              <h3>Telpon</h3>
-              <p><a href="">(0341)478877</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="bi bi-envelope"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:ftd@asia.ac.id">ftd.asia.ac.id</a></p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
+    </section>
+    <!-- End Contact Section -->
+  </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6 footer-info">
             <img src="assets/img/logoasia.png" alt="TheEvenet">
-            <p>Fakultas Teknologi dan Desain Asia memiliki nilai kompetitif dibidang pengembangan ilmu di bidang otomasi
-              industri dan teknologi tepat guna untuk prodi sistem komputer dan sistem optimasi aplikasi bisnis untuk
-              prodi teknik informatika.</p>
+            <p>Fakultas Teknologi dan Desain Institut Teknologi dan Bisnis Asia Malang.</p>
           </div>
-
-
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Menu</h4>
             <ul>
-
               <li><i class="bi bi-chevron-right"></i> <a href="#hero"></a>Beranda</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#speakers">Visi & Misi</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#faq">Pojok Berita</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#venue">Kalender</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Unduhan</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Perkuliahan</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#hotels">Ujian</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#supporters">Link</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#supporters">Lain-Lain</a></li>
-
             </ul>
           </div>
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Alamat</h4>
             <p>
-              Jalan Soekarno Hatta - Rembuksari 1A <br>
+              Jln. Soekarno Hatta - Rembuksari 1A <br>
               Malang<br>
               Jawa Timur <br>
               <strong>Telpon : </strong>(0341)478877<br>
               <strong>Email : </strong>ftd.asia.ac.id<br>
             </p>
-
-
           </div>
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Media Sosial</h4>
             <p>
@@ -649,7 +389,6 @@
               <a href="https://www.instagram.com/institut_asia/"><i class="bi bi-instagram"></i> instagram</a><br>
             </p>
           </div>
-
         </div>
       </div>
     </div>
@@ -659,12 +398,6 @@
         &copy; Copyright <strong>UPT-SI</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-      -->
         Designed by <a href="#">Divisi Expert</a>
       </div>
     </div>
@@ -676,13 +409,44 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('#image-slider').mount();
+    });
+    splide.mount();
+  </script>
+
+  <script>
+    function openNav() {
+      document.getElementById("slider-image").style.display = "block";
+      document.getElementById("slider-image").style.opacity = "1";
+    }
+
+    function closeNav() {
+      document.getElementById("slider-image").style.display = "none";
+      document.getElementById("slider-image").style.opacity = "0";
+    }
+  </script>
+
+  <script>
+    $(".splide__list").on("mousedown", function (e) {
+      e.preventDefault();
+      $(this).addClass("grabbing");
+      console.log("ditekan")
+    }).on("mouseup", function () {
+      $(this).removeClass("grabbing");
+      console.log("dilepas")
+    });
+  </script>
 </body>
 
 </html>
